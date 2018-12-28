@@ -60,12 +60,13 @@ define([
             }
 
             target.steps.sort(this.sortItems).forEach(function (element) {
-                if (element.code == hashString || element.alias == hashString) { //eslint-disable-line eqeqeq
+                if (element.isVisible()) { //eslint-disable-line eqeqeq
+                    window.location = window.checkoutConfig.checkoutUrl + '#' + code;
                     element.navigate(element);
-                } else {
+                }
+                else {
                     element.isVisible(false);
                 }
-
             });
 
             return false;
